@@ -23,16 +23,10 @@ export default StyleSheet.create({
     flexDirection: "column"
   },
   HomeCardsHeader: {
-    flex: .08,
+    height: 50,
     borderWidth: 1,
     borderColor: "rgba(0,0,0,.2)",
     borderRadius: 5,
     alignItems: "center",
   },
-  HomeCardsDisplay: {
-    flex:1,
-    borderWidth: 1,
-    borderColor: "rgba(0,0,0,.2)",
-    borderRadius: 5,
-  }
 });

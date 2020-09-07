@@ -10,13 +10,23 @@ Description: This file will be imported by our screens and buttons for
  var deviceWidth = Dimensions.get('window').width;
 
  export default StyleSheet.create({
-   NavPanel: {
-     top: 10,
-     paddingTop: 5,
-     paddingBottom: 5,
-     paddingRight: 10,
-     paddingLeft: 10,
+   CardsDisplay: {
+     top: 2,
+     flex:1,
      borderWidth: 1,
-     borderColor: "black",
+     borderColor: "rgba(0,0,0,.2)",
+     borderRadius: 5,
    },
+   Card: {
+     height: 100,
+     borderWidth: 1,
+     borderColor: "rgba(0,0,0,.2)",
+     borderRadius: 5,
+     margin: 2,
+     flexDirection: "row"
+   },
+   CardIcon: {
+     width: 160,
+     height:97,
+   }
  });
