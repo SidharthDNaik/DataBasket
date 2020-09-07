@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, TouchableOpacity} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { LoginScreen, RegistrationScreen } from './src/screens'; /* Firebase screens */
 import Home from './Screens/Home';
 import Login from './Screens/Login';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -31,19 +32,30 @@ export default function App(props) {
                           </View>
                          ),
                          headerRight: ({navigation}) => (
-                           <TouchableIcon
-                               onPress={"Nav"}
-                               Screen={"Login"}
-                               Icon = {faUserCircle}
-                               IconSize = {24}
-                               IconText = {"Login"}
-                             />
+                          <View>
+                              <TouchableIcon
+                                 onPress={"Nav"}
+                                 Screen={"Register"}
+                                 Icon = {faUserCircle}
+                                 IconSize = {24}
+                                 IconText = {"Register"}
+                               />
+                          </View>
                          ),
                        }}
         />
         <Stack.Screen
-                      name="Login"
-                      component={Login}
+                      name="Register"
+                      component={RegistrationScreen}
+                      options={{
+                         headerLeft: () => (
+                           <View style={{left: 30}}>
+                             <FontAwesomeIcon icon={faBasketballBall}
+                                              size={24}
+                              />
+                          </View>
+                         )
+                       }}
         />
       </Stack.Navigator>
     </NavigationContainer>
