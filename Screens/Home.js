@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import Styles from '../GeneralStyles/Styles'
 
 export default function Home(props) {
   return (
-    <View>
-      <Text>This is the Home Screen</Text>
+    <View style={Styles.HomeView}>
+      <View style={Styles.HomeCard}>
+      </View>
     </View>
   );
 }
