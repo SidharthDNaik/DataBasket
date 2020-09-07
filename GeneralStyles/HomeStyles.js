@@ -12,12 +12,27 @@ Description: This file will be imported by our screens and buttons for
 export default StyleSheet.create({
   HomeView: {
     flex: 1,
-    margin: 10,
+    marginTop: 2,
   },
   HomeCard: {
     flex:1,
     backgroundColor: "white",
     borderWidth: 1,
-    borderColor: "rgba(0,0,0,.2)"
+    borderColor: "rgba(0,0,0,.2)",
+    borderRadius: 5,
+    flexDirection: "column"
   },
+  HomeCardsHeader: {
+    flex: .08,
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,.2)",
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  HomeCardsDisplay: {
+    flex:1,
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,.2)",
+    borderRadius: 5,
+  }
 });
