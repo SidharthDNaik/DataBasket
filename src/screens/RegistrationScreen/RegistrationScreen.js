@@ -5,10 +5,12 @@ import { firebase } from '../../firebase/config'
 import styles from './styles';
 
 export default function RegistrationScreen({navigation}) {
-	const [fullName, setFullName] = useState('')
+		const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+		const [invalid, setInvalid] = useState(false)
+		const [errorMessage, setErrorMessage] = useState('')
 
     const onFooterLinkPress = () => {
         navigation.navigate('Login')
@@ -16,32 +18,42 @@ export default function RegistrationScreen({navigation}) {
 
     const onRegisterPress = () => {
         if (password !== confirmPassword) {
-            alert("Passwords don't match");
-        }
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
-            .then((response) => {
-                const uid = response.user.uid
-                const data = {
-                    id: uid,
-                    email,
-                    fullName
-                };
-                const usersRef = firebase.firestore().collection('users')
-                usersRef
-                    .doc(uid)
-                    .set(data)
-                    .then(() => {
-                        navigation.navigate('Home', {user: data})
-                    })
-                    .catch((error) => {
-                        alert(error)
-                    });
-            })
-            .catch((error) => {
-                alert(error)
-            });
+						setPassword('');
+						setConfirmPassword('');
+						setInvalid(true);
+						setErrorMessage('Passwords do not match.');
+        } else {
+					firebase
+	            .auth()
+	            .createUserWithEmailAndPassword(email, password)
+	            .then((response) => {
+	                const uid = response.user.uid
+	                const data = {
+	                    id: uid,
+	                    email,
+	                    fullName
+	                };
+	                const usersRef = firebase.firestore().collection('users')
+	                usersRef
+	                    .doc(uid)
+	                    .set(data)
+	                    .then(() => {
+	                        navigation.navigate('Home', {user: data})
+	                    })
+	                    .catch((error) => {
+													setInvalid(true);
+													setErrorMessage(error.message);
+	                    });
+	            })
+	            .catch((error) => {
+								setInvalid(true);
+								setErrorMessage(error.message);
+	            });
+					setFullName('');
+					setEmail('');
+					setPassword('');
+					setConfirmPassword('');
+				}
     }
 
     return (
@@ -79,16 +91,18 @@ export default function RegistrationScreen({navigation}) {
     				onChangeText={(text) => setConfirmPassword(text)}
     				value={confirmPassword}
     			/>
+					{invalid && (
+						<Text style={styles.errorText}> {errorMessage} </Text>
+					)}
     			<TouchableOpacity
     				style={styles.button}
     				onPress={() => onRegisterPress()}>
     				<Text style={styles.buttonTitle}> Create account </Text>
     			</TouchableOpacity>
     			<View style={styles.footerView}>
-                    <Text style={styles.footerText}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in </Text></Text>
-                </View>
+            <Text style={styles.footerText}>Already have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in </Text></Text>
+          </View>
     		</KeyboardAwareScrollView>
     	</View>
-
     )
 }

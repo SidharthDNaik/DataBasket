@@ -5,9 +5,6 @@ export default StyleSheet.create({
         flex: 1,
         alignItems: 'center'
     },
-    title: {
-
-    },
     logo: {
         flex: 1,
         height: 120,
@@ -22,14 +19,14 @@ export default StyleSheet.create({
         backgroundColor: 'white',
         marginTop: 10,
         marginBottom: 10,
-        marginLeft: 30,
-        marginRight: 30,
+        marginLeft: 5,
+        marginRight: 5,
         paddingLeft: 16
     },
     button: {
         backgroundColor: '#788eec',
-        marginLeft: 30,
-        marginRight: 30,
+        marginLeft: 35,
+        marginRight: 35,
         marginTop: 20,
         height: 48,
         borderRadius: 5,
@@ -40,6 +37,12 @@ export default StyleSheet.create({
         color: 'white',
         fontSize: 16,
         fontWeight: "bold"
+    },
+    errorText: {
+      alignItems: "center",
+      color: 'red',
+      fontSize: 16,
+      flexWrap: 'nowrap'
     },
     footerView: {
         flex: 1,
