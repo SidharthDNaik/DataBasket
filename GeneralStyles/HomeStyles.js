@@ -24,7 +24,7 @@ export default StyleSheet.create({
   },
   HomeCardsHeader: {
     height: 50,
-    borderWidth: 1,
+    borderBottomWidth: 1,
     borderColor: "rgba(0,0,0,.2)",
     borderRadius: 5,
     alignItems: "center",

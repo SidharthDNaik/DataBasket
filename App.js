@@ -47,15 +47,6 @@ export default function App(props) {
         <Stack.Screen
                       name="Register"
                       component={RegistrationScreen}
-                      options={{
-                         headerLeft: () => (
-                           <View style={{left: 30}}>
-                             <FontAwesomeIcon icon={faBasketballBall}
-                                              size={24}
-                              />
-                          </View>
-                         )
-                       }}
         />
       </Stack.Navigator>
     </NavigationContainer>

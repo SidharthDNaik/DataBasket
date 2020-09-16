@@ -59,7 +59,7 @@ export default function RegistrationScreen({navigation}) {
     return (
     	<View style={styles.container}>
     		<KeyboardAwareScrollView
-    			style={{ flex: 1, width: '100'}}
+    			style={{ flex: 1, maxWidth: 280}}
     			keyboardShouldPersistTaps='always'>
     			<TextInput
     				style={styles.input}
@@ -91,9 +91,11 @@ export default function RegistrationScreen({navigation}) {
     				onChangeText={(text) => setConfirmPassword(text)}
     				value={confirmPassword}
     			/>
-					{invalid && (
-						<Text style={styles.errorText}> {errorMessage} </Text>
-					)}
+				<View style={{ paddingTop: 5, width: 300}}>
+						{invalid && (
+							<Text style={styles.errorText}> {errorMessage} </Text>
+						)}
+					</View>
     			<TouchableOpacity
     				style={styles.button}
     				onPress={() => onRegisterPress()}>

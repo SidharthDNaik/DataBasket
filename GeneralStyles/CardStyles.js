@@ -12,21 +12,29 @@ Description: This file will be imported by our screens and buttons for
  export default StyleSheet.create({
    CardsDisplay: {
      top: 2,
-     flex:1,
-     borderWidth: 1,
-     borderColor: "rgba(0,0,0,.2)",
-     borderRadius: 5,
+     height: deviceHeight,
    },
    Card: {
-     height: 100,
+     height: 125,
      borderWidth: 1,
      borderColor: "rgba(0,0,0,.2)",
      borderRadius: 5,
      margin: 2,
-     flexDirection: "row"
+     flexDirection: "row",
+     alignItems: "center"
    },
    CardIcon: {
-     width: 160,
-     height:97,
+     width: 100,
+     height: 100,
+     borderRadius: 50,
+     borderWidth: 1,
+   },
+   textContainer: {
+     padding: 5,
+     flexDirection: "row",
+     alignItems: "center",
+   },
+   textStyle: {
+     fontSize: 20,
    }
  });
