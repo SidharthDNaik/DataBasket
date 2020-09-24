@@ -15,13 +15,12 @@ Description: This file will be imported by our screens and buttons for
      height: deviceHeight,
    },
    Card: {
-     height: 125,
-     borderWidth: 1,
      borderColor: "rgba(0,0,0,.2)",
      borderRadius: 5,
      margin: 2,
      flexDirection: "row",
-     alignItems: "center"
+     alignItems: "center",
+     marginBottom: 10
    },
    CardIcon: {
      width: 100,
@@ -36,5 +35,44 @@ Description: This file will be imported by our screens and buttons for
    },
    textStyle: {
      fontSize: 20,
+   },
+   defaultImage: {
+     width: 50,
+     height: 50,
+   },
+   iconContainer: {
+     flex:1,
+     paddingTop: 10,
+     paddingBottom: 10,
+     marginLeft: 5,
+     marginRight: 5,
+     paddingLeft: 2,
+     borderTopWidth: 1,
+     borderBottomWidth: 1,
+     flexDirection: "row",
+     borderColor: "rgba(0,0,0,.2)",
+   },
+   addIconContainer: {
+     flex:1,
+     paddingTop: 10,
+     paddingBottom: 10,
+     marginLeft: 5,
+     marginRight: 5,
+     paddingLeft: 2,
+     borderTopWidth: 1,
+     borderBottomWidth: 1,
+     flexDirection: "row",
+     borderColor: "rgba(0,0,0,.2)",
+     alignItems: "center",
+     justifyContent: "center"
+   },
+   teamCardIcon: {
+     width: 110,
+     height: 110,
+     borderColor: "rgba(0,0,0,.2)",
+   },
+   teamImage:{
+     width: 75,
+     height: 75,
    }
  });

@@ -6,25 +6,6 @@ import CardsDisplay from '../Components/Cards/CardsDisplay';
 
 export default function Home(props) {
 
-  const [isLoading, setLoading] = useState(false);
-  const [data, setData] = useState('');
-
-  const fetchData = () => {
-    fetch("https://api-nba-v1.p.rapidapi.com/players/teamId/17", {
-    	"method": "GET",
-    	"headers": {
-    		"x-rapidapi-host": "api-nba-v1.p.rapidapi.com",
-    		"x-rapidapi-key": "87999c701bmshe346a79cb0bb547p19402ejsn125001a1c097"
-    	}
-    })
-    .then(response => {
-    	console.log(response);
-    })
-    .catch(err => {
-    	console.log(err);
-    });
-  }
-
   var dNavNames = ["Players", "Teams"];
   var players = {
                 "0": {
@@ -42,15 +23,49 @@ export default function Home(props) {
                         "team": "Lakers"
                  }
                 }
+  var teams = {
+                "0":{
+                  "teamName": "Lakers",
+                  "city": "Los Angeles",
+                  "wins": 52,
+                  "losses": 19
+                },
+  }
+
+  var player = {
+
+  }
+
+  var team = {
+
+  }
+
+  const [feed, setFeed] = useState('player');
+  const [feedDisplay, setFeedDisplay] = useState(players)
+
+  const changeFeed = (display) =>{
+    if(display == "Players"){
+      setFeed("player")
+      setFeedDisplay(players)
+    } else {
+      setFeed("team")
+      setFeedDisplay(teams)
+    }
+  }
 
   return (
     <View style={Styles.HomeView}>
       <View style={Styles.HomeCard}>
         <View style={Styles.HomeCardsHeader}>
-          <DisplayNavigator names={dNavNames}/>
+          <DisplayNavigator
+            names={dNavNames}
+            onPress={(feed) =>{
+              changeFeed(feed)
+            }}
+            />
         </View>
         <ScrollView>
-          <CardsDisplay players={players}/>
+          <CardsDisplay feedDisplay={feedDisplay} feed={feed}/>
         </ScrollView>
       </View>
     </View>

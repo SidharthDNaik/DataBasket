@@ -17,16 +17,13 @@ export default StyleSheet.create({
   HomeCard: {
     flex:1,
     backgroundColor: "white",
-    borderWidth: 1,
-    borderColor: "rgba(0,0,0,.2)",
-    borderRadius: 5,
     flexDirection: "column"
   },
   HomeCardsHeader: {
     height: 50,
+    marginBottom: 10,
     borderBottomWidth: 1,
     borderColor: "rgba(0,0,0,.2)",
-    borderRadius: 5,
     alignItems: "center",
   },
 });
