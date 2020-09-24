@@ -8,27 +8,43 @@ export default function Home(props) {
 
   var dNavNames = ["Players", "Teams"];
   var players = {
-                "0": {
+                0: {
                         "firstName": "Lebron",
                         "lastName": "James",
                         "position": "F",
                         "jersey": "23",
-                        "team": "Lakers"
+                        "team": "Lakers",
+                        "plyn": "1966"
                       },
-                 "1": {
+                 1: {
                         "firstName": "Anthony",
                         "lastName": "Davis",
                         "position": "PF",
                         "jersey": "3",
-                        "team": "Lakers"
+                        "team": "Lakers",
+                        "plyn": "6583"
                  }
                 }
   var teams = {
-                "0":{
+                0:{
                   "teamName": "Lakers",
                   "city": "Los Angeles",
-                  "wins": 52,
-                  "losses": 19
+                  "shrt": "lal",
+                },
+                1:{
+                  "teamName": "Knicks",
+                  "city": "New York City",
+                  "shrt": "nyk",
+                },
+                2:{
+                  "teamName": "Clippers",
+                  "city": "Los Angeles",
+                  "shrt": "lac",
+                },
+                3:{
+                  "teamName": "Nuggets",
+                  "city": "Denver",
+                  "shrt": "den",
                 },
   }
 

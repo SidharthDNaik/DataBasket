@@ -4,23 +4,6 @@ import Styles from '../../GeneralStyles/CardStyles'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {faPlusSquare} from '@fortawesome/free-regular-svg-icons';
 
-function setImage(player){
-  switch(player){
-      case "Lebron James":
-        return require('../../Data/PlayerIcons/Lakers/LebronJames.png');
-        break;
-      case "Anthony Davis":
-        return require('../../Data/PlayerIcons/Lakers/AnthonyDavis.png');
-        break;
-      case "Lakers":
-        return require('../../Data/TeamIcons/Lakers.png');
-        break;
-      case "add player":
-      return require('../../Data/General/add_player.png');
-      break;
-    }
-}
-
 const CardText = (props) => {
   var display = []
   var cardText = props.textDisplay
@@ -49,7 +32,7 @@ const Card = (props) => {
               >
               <View style={{padding: 5}}>
                 <Image style={Styles.CardIcon}
-                       source={props.image}/>
+                       source={{uri: props.imageUrl}}/>
               </View>
               <View style={Styles.textContainer}>
                 <CardText textDisplay={props.cardText}/>
@@ -67,7 +50,7 @@ const Card = (props) => {
               >
               <View>
                 <Image style={Styles.teamCardIcon}
-                       source={props.image}/>
+                       source={{uri: props.imageUrl}}/>
               </View>
               <View style={Styles.textContainer}>
                 <CardText textDisplay={props.cardText}/>
@@ -98,17 +81,16 @@ const Card = (props) => {
 
 export default function CardsDisplay (props){
   var cardsDisplay = [];
-  var image = require('../../Data/PlayerIcons/General/no_Icon.png')
   var feed = props.feed
   var feedDisplay=props.feedDisplay
   if(feed == "player"){
     for(var i in feedDisplay) {
       var player = feedDisplay[i]["firstName"] + " " + feedDisplay[i]["lastName"];
-      image = setImage(player)
+      var imageUrl = "https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/" + feedDisplay[i]["plyn"] +".png"
       var cardText = [feedDisplay[i]["team"] + " ", feedDisplay[i]["position"] + " | ", player ]
       cardsDisplay.push(<Card
                               key={i}
-                              image={image}
+                              imageUrl={imageUrl}
                               cardText={cardText}
                               default={false}
                               feed={"players"}
@@ -117,22 +99,20 @@ export default function CardsDisplay (props){
   } else {
     for(var i in feedDisplay) {
       var team = feedDisplay[i]["teamName"]
-      image = setImage(team)
+      var imageUrl = "http://a4.espncdn.com/combiner/i?img=%2Fi%2Fteamlogos%2Fnba%2F500%2F" + feedDisplay[i]["shrt"] +".png"
       var cardText = [feedDisplay[i]["city"] + " - ", feedDisplay[i]["teamName"]]
       cardsDisplay.push(<Card
                               key={i}
-                              image={image}
+                              imageUrl={imageUrl}
                               cardText={cardText}
                               default={false}
                               feed={"teams"}
                         />);
                       }
   }
-  image = setImage("add player")
   var cardText = ["add a " + feed]
   cardsDisplay.push(<Card
                             key={-1}
-                            image={image}
                             cardText={cardText}
                             default={true}
                       />
